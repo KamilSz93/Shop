@@ -1,7 +1,9 @@
+import ShopCard from '../components/Card'
+
 const Shop = () => {
     return (
         <div>
-            SHOP
+            <ShopCard />
      </div>
  )   
 }
