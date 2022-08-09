@@ -1,21 +1,26 @@
 import { type } from "@testing-library/user-event/dist/type";
 import { createContext, useContext, ReactNode } from "react";
 import { useState } from 'react';
+import ShoppingCart from '../components/ShoppingCart';
 
 type ShoppingCardProviderProps = {
     children: ReactNode
 }
 
+type CartItem = {
+  id: number;
+  quantity: number;
+};
+
 type ShoppingCardContext = {
+    openCart: () => void
+    closeCart: () => void
     getItemQuantity: (id: number) => number
     increaseCardQuantity: (id: number) => void
     decreaseCardQuantity: (id: number) => void
     removeFromCard: (id: number) => void
-}
-
-type CartItem = {
-    id: number
-    quantity: number
+    cartQuantity: number
+    cartItems: CartItem[]
 }
 
 const ShoppingCardContext = createContext({} as
@@ -28,14 +33,21 @@ export function useShoppingCard () {
 export function ShoppingCardProvider({ children }:
     ShoppingCardProviderProps) {
     
-    const [cartItem, setCartItem] = useState<CartItem[]>([]); 
+    const [isOpen, setIsOpen] = useState(false);
+    const [cartItems, setCartItems] = useState<CartItem[]>([]);
+
+    const cartQuantity = cartItems.reduce((quantity, item) =>
+        item.quantity + quantity, 0);
+    
+    const closeCart = () => setIsOpen(false);
+    const openCart = () => setIsOpen(true);
    
     function getItemQuantity(id:number) {
-       return cartItem.find(item => item.id ===id)?.quantity || 0
+       return cartItems.find(item => item.id ===id)?.quantity || 0
     }
 
     function increaseCardQuantity(id: number) {
-        setCartItem(currItems => {
+        setCartItems(currItems => {
             if (currItems.find(item => item.id === id) == null) {
                 return [...currItems, { id, quantity: 1 }]
             } else {
@@ -51,7 +63,7 @@ export function ShoppingCardProvider({ children }:
     }
 
     function decreaseCardQuantity(id: number) {
-      setCartItem((currItems) => {
+      setCartItems((currItems) => {
         if (currItems.find((item) => item.id === id)?.quantity === 1) {
           return currItems.filter(item => item.id !== id)
         } else {
@@ -67,13 +79,26 @@ export function ShoppingCardProvider({ children }:
     }
 
     function removeFromCard(id: number) {
-        setCartItem(currItems => {
+        setCartItems(currItems => {
             return currItems.filter(item => item.id !== id)
         })
     }
    
     return (
-        <ShoppingCardContext.Provider value={{ getItemQuantity, increaseCardQuantity, decreaseCardQuantity, removeFromCard}} >
-        {children}
-     </ShoppingCardContext.Provider>)
+      <ShoppingCardContext.Provider
+        value={{
+          getItemQuantity,
+          increaseCardQuantity,
+          decreaseCardQuantity,
+          removeFromCard,
+          openCart,
+          closeCart,
+          cartQuantity,
+          cartItems,
+        }}
+      >
+            {children}
+            <ShoppingCart isOpen={isOpen} />
+      </ShoppingCardContext.Provider>
+    );
 }
