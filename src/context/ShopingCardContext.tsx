@@ -1,15 +1,14 @@
-import { type } from "@testing-library/user-event/dist/type";
 import { createContext, useContext, ReactNode } from "react";
 import { useState } from 'react';
-import ShoppingCart from '../components/ShoppingCart';
+import  ShoppingCart  from '../components/ShoppingCart';
 
 type ShoppingCardProviderProps = {
     children: ReactNode
 }
 
 type CartItem = {
-  id: number;
-  quantity: number;
+  id: number
+  quantity: number
 };
 
 type ShoppingCardContext = {
