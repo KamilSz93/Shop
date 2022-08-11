@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/KamilSz93/Shopping_Card-TypeScript-Bootstrap.git/static/css/main.4de0fa12.css",
+    "main.js": "/KamilSz93/Shopping_Card-TypeScript-Bootstrap.git/static/js/main.0d8dc201.js",
+    "static/js/787.eaad36ba.chunk.js": "/KamilSz93/Shopping_Card-TypeScript-Bootstrap.git/static/js/787.eaad36ba.chunk.js",
+    "index.html": "/KamilSz93/Shopping_Card-TypeScript-Bootstrap.git/index.html",
+    "main.4de0fa12.css.map": "/KamilSz93/Shopping_Card-TypeScript-Bootstrap.git/static/css/main.4de0fa12.css.map",
+    "main.0d8dc201.js.map": "/KamilSz93/Shopping_Card-TypeScript-Bootstrap.git/static/js/main.0d8dc201.js.map",
+    "787.eaad36ba.chunk.js.map": "/KamilSz93/Shopping_Card-TypeScript-Bootstrap.git/static/js/787.eaad36ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4de0fa12.css",
+    "static/js/main.0d8dc201.js"
+  ]
+}
