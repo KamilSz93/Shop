@@ -3,7 +3,6 @@ import Button from "react-bootstrap/Button";
 import { formatCurrency } from '../utilities/formatCurrency';
 import { useShoppingCard } from '../context/ShopingCardContext';
 
-
 type ItemProps = {
   id: number
   name: string
