@@ -1,26 +1,32 @@
 [
   {
     "id": 1,
-    "name": "Book",
+    "name": "Flowers",
     "price": 10.99,
-    "imgUrl": "/imgs/book.jpg"
+    "imgUrl": "/imgs/flowers.jpg"
   },
   {
     "id": 2,
-    "name": "Computer",
+    "name": "Telephone",
     "price": 1199,
-    "imgUrl": "/imgs/computer.jpg"
+    "imgUrl": "/imgs/telephone.jpg"
   },
   {
     "id": 3,
-    "name": "Banana",
+    "name": "Apple",
     "price": 1.05,
-    "imgUrl": "/imgs/banana.jpg"
+    "imgUrl": "/imgs/apple.jpg"
   },
   {
     "id": 4,
     "name": "Car",
     "price": 14000,
     "imgUrl": "/imgs/car.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Table",
+    "price": 14000,
+    "imgUrl": "/imgs/table.jpg"
   }
 ]

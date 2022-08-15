@@ -22,22 +22,33 @@ const ShopCard = ({ id, name, price, imgUrl }: ItemProps) => {
       />
       <Card.Body className="d-flex flex-column">
         <Card.Title className="d-flex justify-content-between align-items-baseline mb-4">
-          <span className="fs-2">{ name }</span>
-          <span className="ms-2 text-muted">{ formatCurrency(price) }</span>
+          <span className="fs-2">{name}</span>
+          <span className="ms-2 text-muted">{formatCurrency(price)}</span>
         </Card.Title>
         <div className="mt-auto">
           {quantity === 0 ? (
-            <Button className="w-100" onClick={()=>increaseCardQuantity(id)}>+ Add to card</Button>
+            <Button
+              className="w-100"
+              variant="outline-primary"
+              onClick={() => increaseCardQuantity(id)}
+            >
+              + Add to card
+            </Button>
           ) : (
             <div className="d-flex flex-column  align-items-center">
               <div className="d-flex align-items-center justify-content-center">
-                <Button onClick={()=>increaseCardQuantity(id)}>+</Button>
+                <Button onClick={() => increaseCardQuantity(id)}>+</Button>
                 <div>
                   <span className="ms-2 me-2">{quantity} in Card</span>
                 </div>
-                  <Button onClick={() => decreaseCardQuantity(id)}>-</Button>
+                <Button onClick={() => decreaseCardQuantity(id)}>-</Button>
               </div>
-                <Button onClick={()=>removeFromCard(id) } className="mt-2" size="sm" variant="danger">
+              <Button
+                onClick={() => removeFromCard(id)}
+                className="mt-2"
+                size="sm"
+                variant="danger"
+              >
                 {" "}
                 Remove{" "}
               </Button>
