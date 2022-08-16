@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: 'EB Garamond', serif;
+  font-family: 'Teko', sans-serif;
 }
 
 code {
